@@ -1,0 +1,33 @@
+{
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+
+    settings = {
+      theme = "Rose Pine";
+
+      font-size = 15;
+      font-family = "Maple Mono NF";
+      font-feature = [
+        "cv01"
+        "cv35"
+        "ss01"
+        "ss04"
+        "ss05"
+      ];
+
+      fullscreen = true;
+
+      window-padding-x = "0, 0";
+      window-padding-y = "0, 0";
+      window-padding-balance = true;
+
+      working-directory = "home";
+      shell-integration-features = "ssh-env,no-cursor";
+
+      cursor-style = "block";
+      cursor-style-blink = false;
+      mouse-hide-while-typing = true;
+    };
+  };
+}
