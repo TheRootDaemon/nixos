@@ -11,7 +11,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    nautilus
     gnome-tweaks
+    loupe
+    nautilus
   ];
 }
