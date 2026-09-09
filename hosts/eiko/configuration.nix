@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/denv
+    ../../modules/devenv
     ../../modules/system
   ];
 
@@ -36,25 +37,13 @@
     zsh
     neovim
     starship
-    python313
-    python313Packages.pynvim
     fzf
     ripgrep
     oh-my-posh
     tldr
     tree
     tmux
-    lua
-    luarocks
-    stylua
-    lua-language-server
     ghostty
-    go
-    gofumpt
-    gopls
-    nodejs
-    nixd
-    alejandra
     wl-clipboard
   ];
 
