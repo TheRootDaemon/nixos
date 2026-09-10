@@ -1,6 +1,6 @@
 {dotfiles, ...}: {
-  programs.tmux = {
+  programs.neovim = {
     enable = true;
-    extraLuaConfig = builtins.readFile "${dotfiles}/.config/nvim/init.lua";
+    initLua = builtins.readFile "${dotfiles}/.config/nvim/init.lua";
   };
 }
