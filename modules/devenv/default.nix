@@ -6,6 +6,7 @@
     ./lua.nix
     ./markup.nix
     ./nix.nix
+    ./neovim.nix
     ./proto.nix
     ./python.nix
     ./sh.nix

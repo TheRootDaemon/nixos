@@ -10,6 +10,8 @@
     ../../modules/system
   ];
 
+  system.stateVersion = "26.05";
+  documentation.nixos.enable = false;
   nix.settings.experimental-features = ["flakes" "nix-command"];
 
   networking.hostName = "eiko";
@@ -33,23 +35,8 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    zsh
-    neovim
-    starship
-    fzf
-    ripgrep
-    oh-my-posh
-    tldr
-    tree
-    tmux
-    ghostty
-    wl-clipboard
-  ];
 
   fonts.packages = with pkgs; [
     maple-mono.NF-unhinted
   ];
-
-  system.stateVersion = "26.05";
 }

@@ -1,6 +1,18 @@
-{dotfiles, ...}: {
+{
+  pkgs,
+  dotfiles,
+  ...
+}: {
   programs.neovim = {
     enable = true;
-    initLua = builtins.readFile "${dotfiles}/.config/nvim/init.lua";
+
+    withNodeJs = true;
+    withPython3 = true;
+
+    extraPackages = with pkgs; [
+      tree-sitter
+    ];
   };
+
+  home.file.".config/nvim".source = "${dotfiles}/.config/nvim";
 }
