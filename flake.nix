@@ -13,6 +13,7 @@
   outputs = {
     self,
     nixpkgs,
+    dotfiles,
     home-manager,
     ...
   }: let
@@ -46,7 +47,7 @@
               backupFileExtension = "backup";
 
               extraSpecialArgs = {
-                inherit profile;
+                inherit profile dotfiles;
               };
 
               users.${profile.unixUserName} = import ./home/users/${profile.unixUserName}/home.nix;
