@@ -1,11 +1,12 @@
 {
-  description = "therootdaemon's nixos configuration";
+  description = "@TheRootDaemon's nixos configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05";
+    dotfiles.url = "github:TheRootDaemon/dotfiles";
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-26.05";
     };
   };
 
@@ -14,33 +15,44 @@
     nixpkgs,
     home-manager,
     ...
-  }: {
+  }: let
+    # hosts managed by this flake
+    hosts = {
+      eiko = {
+        system = "x86_64-linux";
+        modules = [./hosts/eiko/configuration.nix];
+      };
+    };
+
+    # user information shared across the configuration
+    profile = {
+      userName = "TheRootDaemon";
+      unixUserName = "therootdaemon";
+      userEmail = "harsha.manjula.venkataramanan@gmail.com";
+    };
+  in {
     nixosConfigurations.eiko = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = hosts.eiko.system;
+      modules =
+        hosts.eiko.modules
+        ++ [
+          home-manager.nixosModules.home-manager
 
-      modules = [
-        ./hosts/eiko/configuration.nix
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
 
-        home-manager.nixosModules.home-manager
+              backupFileExtension = "backup";
 
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-
-            backupFileExtension = "backup";
-
-            extraSpecialArgs = {
-              user = {
-                name = "TheRootDaemon";
-                email = "harsha.manjula.venkataramanan@gmail.com";
+              extraSpecialArgs = {
+                inherit profile;
               };
-            };
 
-            users.therootdaemon = import ./home/users/therootdaemon/home.nix;
-          };
-        }
-      ];
+              users.${profile.unixUserName} = import ./home/users/${profile.unixUserName}/home.nix;
+            };
+          }
+        ];
     };
   };
 }

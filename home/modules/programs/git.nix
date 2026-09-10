@@ -1,10 +1,14 @@
-{user, ...}: {
+{profile, ...}: {
   programs.git = {
     enable = true;
 
     settings = {
-      user = user;
       core.editor = "nvim";
+
+      user = {
+        name = profile.userName;
+        email = profile.userEmail;
+      };
     };
   };
 }

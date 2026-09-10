@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "dotfiles": {
+      "locked": {
+        "lastModified": 1789025058,
+        "narHash": "sha256-NvTqb/yipb2ndtG2wtdyi0QnQcaRJT8KEcd5hbxTt34=",
+        "owner": "TheRootDaemon",
+        "repo": "dotfiles",
+        "rev": "e21130414262c3b6af5ec26cbf9b5a28d01186ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheRootDaemon",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -37,6 +52,7 @@
     },
     "root": {
       "inputs": {
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }
