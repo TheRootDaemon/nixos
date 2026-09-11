@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./firefox.nix
     ./ghostty.nix
     ./git.nix
     ./neovim.nix
