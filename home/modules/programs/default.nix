@@ -7,6 +7,7 @@
     ./opencode.nix
     ./ssh.nix
     ./tmux.nix
+    ./zsh.nix
   ];
 
   home.packages = with pkgs; [
