@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/fonts
     ../../modules/denv
     ../../modules/devenv
     ../../modules/system
@@ -34,8 +35,4 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  fonts.packages = with pkgs; [
-    maple-mono.NF-unhinted
-  ];
 }
