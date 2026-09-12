@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./cpp.nix
     ./docker.nix
@@ -12,4 +12,6 @@
     ./sh.nix
     ./zig.nix
   ];
+
+  environment.systemPackages = with pkgs; [gnumake];
 }
