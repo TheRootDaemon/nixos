@@ -1,9 +1,11 @@
 {lib, ...}: {
   dconf.settings = {
+    # swaps caps lock and escape, for a vim friendly layout
     "org/gnome/desktop/input-sources" = {
       xkb-options = ["caps:swapescape"];
     };
 
+    # general GNOME appearence and interface preferences
     "org/gnome/desktop/interface" = {
       accent-color = "purple";
       color-scheme = "prefer-dark";
@@ -11,24 +13,24 @@
     };
 
     "org/gnome/desktop/peripherals/keyboard" = {
+      # enables key repetition when holding a key
       repeat = true;
 
+      # time before a held key start repeating ie., in milliseconds
       delay = lib.hm.gvariant.mkUint32 200;
+
+      # time between repeated key presses ie., in milliseconds
       repeat-interval = lib.hm.gvariant.mkUint32 35;
     };
 
+    # allows audio over-amplification
     "org/gnome/desktop/sound" = {
       allow-volume-above-100-percent = true;
     };
 
-    "org/gnome/settings-daemon/plugins/color" = {
-      night-light-enabled = true;
-      night-light-temperature = 3000;
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys" = {
+    # window manager keybindings
+    "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q"];
-      www = ["<Super>b"];
 
       switch-to-workspace-1 = ["<Super>1"];
       switch-to-workspace-2 = ["<Super>2"];
@@ -39,6 +41,45 @@
       switch-to-workspace-7 = ["<Super>7"];
       switch-to-workspace-8 = ["<Super>8"];
       switch-to-workspace-9 = ["<Super>9"];
+
+      switch-to-workspace-left = ["<Super>bracketleft"];
+      switch-to-workspace-right = ["<Super>bracketright"];
+    };
+
+    # disables <Super>{{number}} shortcuts,
+    # since they are used for switching workspaces
+    "org/gnome/shell/keybindings" = {
+      switch-to-application-1 = [];
+      switch-to-application-2 = [];
+      switch-to-application-3 = [];
+      switch-to-application-4 = [];
+      switch-to-application-5 = [];
+      switch-to-application-6 = [];
+      switch-to-application-7 = [];
+      switch-to-application-8 = [];
+      switch-to-application-9 = [];
+    };
+
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
+
+      night-light-schedule-automatic = false;
+      night-light-schedule-from = 0.0;
+      night-light-schedule-to = 0.0;
+      night-light-temperature = lib.hm.gvariant.mkUint32 3500;
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/browser/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/"
+      ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/browser" = {
+      name = "browser";
+      command = "firefox";
+      binding = "<Super>b";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal" = {

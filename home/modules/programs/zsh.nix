@@ -43,8 +43,7 @@
 
       rg = "rg --color=auto";
 
-      v = "nvim .";
-      vi = "nvim";
+      v = "nvim";
 
       x = "tmux new-session -s";
       xc = "tmux attach -t";

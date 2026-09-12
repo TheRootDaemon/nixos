@@ -9,7 +9,16 @@
     };
 
     profiles.default = {
+      search = {
+        # enforces the search engine as teh default
+        force = true;
+
+        # ddg -> DuckDuckGo
+        default = "ddg";
+      };
+
       settings = {
+        # discards the previous session
         "browser.startup.page" = 1;
 
         # disables firefox's recomendations
