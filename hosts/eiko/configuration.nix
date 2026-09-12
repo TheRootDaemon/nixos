@@ -8,6 +8,7 @@
     ../../modules/fonts
     ../../modules/denv
     ../../modules/devenv
+    ../../modules/media
     ../../modules/system
   ];
 
