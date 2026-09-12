@@ -27,28 +27,34 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
+      g = "git";
       ga = "git add";
       gc = "git commit";
       gco = "git checkout";
       gl = "git log --oneline";
       gld = "git log --graph --decorate --pretty=format:'%C(auto)%h%d %s %C(dim white)(%cr)'";
+      gp = "git push";
+      gpl = "git pull";
+      gr = "git rebase";
+      grs = "git restore";
       gs = "git status";
+      gst = "git stash";
       gsw = "git switch";
 
       grep = "grep --color=auto";
 
       l = "ls -CF --color=auto";
       la = "ls -A --color=auto";
-      ll = "ll -lah --color=auto";
+      ll = "ls -lah --color=auto";
 
       rg = "rg --color=auto";
 
       v = "nvim";
 
-      x = "tmux new-session -s";
-      xc = "tmux attach -t";
-      xl = "tmus ls";
-      xk = "tmux kill-server";
+      w = "tmux new-session -s";
+      wc = "tmux attach -t";
+      wl = "tmus ls";
+      wk = "tmux kill-server";
     };
   };
 
