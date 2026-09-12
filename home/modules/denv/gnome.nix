@@ -13,7 +13,8 @@
   };
 
   dconf.settings = {
-    # swaps caps lock and escape, for a vim friendly layout
+    # swaps caps lock and escape,
+    # definitely to be vim friendly
     "org/gnome/desktop/input-sources" = {
       xkb-options = ["caps:swapescape"];
     };
@@ -64,7 +65,10 @@
       favorite-apps = [];
     };
 
-    "org/gnome/shell/extensions/blur-my-shell" = {
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      # must stay true for overrides to work
+      override-background = true;
+
       # disables/enables certain effects when the window is close to the panel
       override-background-dynamically = true;
 
@@ -107,6 +111,8 @@
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/browser/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/files/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/settings/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/"
       ];
     };
@@ -115,6 +121,18 @@
       name = "browser";
       command = "firefox";
       binding = "<Super>b";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/files" = {
+      name = "files";
+      command = "nautilus";
+      binding = "<Super>e";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/settings" = {
+      name = "settings";
+      command = "gnome-control-center";
+      binding = "<Super>s";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal" = {
