@@ -3,7 +3,9 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     dotfiles.url = "github:TheRootDaemon/dotfiles";
+
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/release-26.05";
@@ -13,6 +15,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     dotfiles,
     home-manager,
     ...
@@ -48,6 +51,7 @@
 
               extraSpecialArgs = {
                 inherit profile dotfiles;
+                pkgsUnstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
               };
 
               users.${profile.unixUserName} = import ./home/users/${profile.unixUserName}/home.nix;

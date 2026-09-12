@@ -1,4 +1,17 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  programs.gnome-shell = {
+    enable = true;
+
+    extensions = with pkgs.gnomeExtensions; [
+      {package = blur-my-shell;}
+      {package = just-perfection;}
+    ];
+  };
+
   dconf.settings = {
     # swaps caps lock and escape, for a vim friendly layout
     "org/gnome/desktop/input-sources" = {
@@ -44,6 +57,28 @@
 
       switch-to-workspace-left = ["<Super>bracketleft"];
       switch-to-workspace-right = ["<Super>bracketright"];
+    };
+
+    # empties the dock
+    "org/gnome/shell" = {
+      favorite-apps = [];
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      # disables/enables certain effects when the window is close to the panel
+      override-background-dynamically = true;
+
+      # use the panel background when a window is near
+      override-background-dynamically-mode = 1;
+    };
+
+    "org/gnome/shell/extensions/just-perfection" = {
+      # disables the dash
+      dash = false;
+
+      # disables the workspace popup
+      # when switching workspaces
+      workspace-popup = false;
     };
 
     # disables <Super>{{number}} shortcuts,
