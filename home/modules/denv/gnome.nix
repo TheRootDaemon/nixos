@@ -1,8 +1,11 @@
 {
   lib,
   pkgs,
+  dotfiles,
   ...
 }: {
+  home.file.".local/share/backgrounds/wallpaper".source = "${dotfiles}/carousel/ruiTachibana.png";
+
   programs.gnome-shell = {
     enable = true;
 
@@ -13,6 +16,11 @@
   };
 
   dconf.settings = {
+    "org/gnome/desktop/background" = {
+      picture-uri = "${dotfiles}/carousel/ruiTachibana.png";
+      picture-uri-dark = "${dotfiles}/carousel/ruiTachibana.png";
+    };
+
     # swaps caps lock and escape,
     # definitely to be vim friendly
     "org/gnome/desktop/input-sources" = {

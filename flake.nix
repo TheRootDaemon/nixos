@@ -37,6 +37,11 @@
   in {
     nixosConfigurations.eiko = nixpkgs.lib.nixosSystem {
       system = hosts.eiko.system;
+
+      specialArgs = {
+        inherit dotfiles;
+      };
+
       modules =
         hosts.eiko.modules
         ++ [
