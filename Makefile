@@ -8,7 +8,7 @@ switch:
 
 .PHONY: test
 test:
-	sudo nixos-rebuild test --flake $(FLAKE)#$(HOST)
+	sudo nixos-rebuild test
 
 .PHONY: update
 update:

@@ -13,5 +13,8 @@
     ./zig.nix
   ];
 
-  environment.systemPackages = with pkgs; [gnumake];
+  environment.systemPackages = with pkgs; [
+    gnumake
+    tokei
+  ];
 }

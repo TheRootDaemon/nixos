@@ -30,6 +30,7 @@
       g = "git";
       ga = "git add";
       gc = "git commit";
+      gcn = "git clone";
       gco = "git checkout";
       gl = "git log --oneline";
       gld = "git log --graph --decorate --pretty=format:'%C(auto)%h%d %s %C(dim white)(%cr)'";
@@ -43,9 +44,10 @@
 
       grep = "grep --color=auto";
 
-      l = "ls -CF --color=auto";
-      la = "ls -A --color=auto";
+      l = "ls -CAF --color=auto";
       ll = "ls -lah --color=auto";
+
+      oc = "opencode";
 
       rg = "rg --color=auto";
 
@@ -53,7 +55,7 @@
 
       w = "tmux new-session -s";
       wc = "tmux attach -t";
-      wl = "tmus ls";
+      wls = "tmux ls";
       wk = "tmux kill-server";
     };
   };
