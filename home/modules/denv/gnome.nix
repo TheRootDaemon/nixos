@@ -125,6 +125,11 @@
       ];
     };
 
+    # asks if I want to turn off my machine
+    "org/gnome/settings-daemon/plugins/power" = {
+      power-button-action = "interactive";
+    };
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/browser" = {
       name = "browser";
       command = "firefox";
