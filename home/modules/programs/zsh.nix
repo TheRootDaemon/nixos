@@ -26,26 +26,30 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    # edit current command in $EDITOR
+    initContent = ''
+      autoload -Uz edit-command-line
+      zle -N edit-command-line
+      bindkey "^[e" edit-command-line
+    '';
+
     shellAliases = {
       g = "git";
       ga = "git add";
       gc = "git commit";
       gcn = "git clone";
-      gco = "git checkout";
+      gd = "git diff";
       gl = "git log --oneline";
       gld = "git log --graph --decorate --pretty=format:'%C(auto)%h%d %s %C(dim white)(%cr)'";
       gp = "git push";
-      gpl = "git pull";
-      gr = "git rebase";
-      grs = "git restore";
+      gpu = "git pull";
       gs = "git status";
-      gst = "git stash";
       gsw = "git switch";
 
       grep = "grep --color=auto";
 
-      l = "ls -CAF --color=auto";
-      ll = "ls -lah --color=auto";
+      ls = "ls -CF --color=auto";
+      la = "ls -lhAF --color=auto";
 
       oc = "opencode";
 
@@ -63,7 +67,6 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-
     settings = fromTOML (builtins.readFile "${dotfiles}/.config/starship.toml");
   };
 }
