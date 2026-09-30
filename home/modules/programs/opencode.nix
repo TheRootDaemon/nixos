@@ -18,6 +18,6 @@
     ".config/opencode/skills".source = "${dotfiles}/.config/opencode/skills";
 
     ".config/opencode/opencode.jsonc".source = "${dotfiles}/.config/opencode/opencode.jsonc";
-    ".config/opencode/tui.jsoc".source = "${dotfiles}/.config/opencode/tui.jsonc";
+    ".config/opencode/tui.jsonc".source = "${dotfiles}/.config/opencode/tui.jsonc";
   };
 }
