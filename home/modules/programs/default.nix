@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     curl
+    eza
     fd
     fzf
     inetutils

@@ -8,6 +8,9 @@
 
     # zsh behaviour and safety options
     setOptions = [
+      # disables beep sounds
+      "NOBEEP"
+
       # error when glob mathes no files
       "NOMATCH"
 
@@ -34,6 +37,12 @@
     '';
 
     shellAliases = {
+      d = "docker";
+      dc = "docker compose";
+      dps = ''
+        docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"
+      '';
+
       g = "git";
       ga = "git add";
       gc = "git commit";
@@ -48,8 +57,8 @@
 
       grep = "grep --color=auto";
 
-      ls = "ls -CF --color=auto";
-      la = "ls -lhAF --color=auto";
+      ls = "eza -CF";
+      la = "eza -lhAF";
 
       oc = "opencode";
 
@@ -68,5 +77,14 @@
     enable = true;
     enableZshIntegration = true;
     settings = fromTOML (builtins.readFile "${dotfiles}/.config/starship.toml");
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [
+      "--cmd"
+      "cd"
+    ];
   };
 }
