@@ -4,19 +4,14 @@
     enableZshIntegration = true;
 
     settings = {
-      theme = "Rose Pine";
+      fullscreen = true;
+
+      theme = "Vague";
+      palette = ["2=#9ccfd8"];
 
       font-size = 15;
-      font-family = "Maple Mono NF";
-      font-feature = [
-        "cv01"
-        "cv35"
-        "ss01"
-        "ss04"
-        "ss05"
-      ];
-
-      fullscreen = true;
+      font-family = "JetBrainsMono Nerd Font";
+      font-feature = ["zero" "-calt" "-dlig" "-liga"];
 
       window-padding-x = "0, 0";
       window-padding-y = "0, 0";

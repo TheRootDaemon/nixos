@@ -21,7 +21,6 @@
     man-db
     ripgrep
     tlrc
-    tree
     unzip
     wget
     wl-clipboard

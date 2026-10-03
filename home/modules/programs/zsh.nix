@@ -31,6 +31,8 @@
 
     # edit current command in $EDITOR
     initContent = ''
+      ZLE_RPROMPT_INDENT=0
+
       autoload -Uz edit-command-line
       zle -N edit-command-line
       bindkey "^[e" edit-command-line
@@ -53,12 +55,13 @@
       gp = "git push";
       gpu = "git pull";
       gs = "git status";
-      gsw = "git switch";
+      gsh = "git switch";
 
       grep = "grep --color=auto";
 
-      ls = "eza -CF";
+      ls = "eza -F";
       la = "eza -lhAF";
+      tree = "eza --tree -F";
 
       oc = "opencode";
 

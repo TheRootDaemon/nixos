@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   fonts.packages = with pkgs; [
-    maple-mono.NF-unhinted
+    nerd-fonts.jetbrains-mono
     nerd-fonts.noto
     noto-fonts
     noto-fonts-cjk-sans
