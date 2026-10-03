@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/fonts
@@ -23,9 +19,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "therootdaemon";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-    ];
+    extraGroups = ["docker" "networkmanager" "wheel"];
   };
 
   programs.zsh.enable = true;

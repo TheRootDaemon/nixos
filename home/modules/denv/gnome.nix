@@ -54,6 +54,9 @@
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q"];
 
+      move-to-workspace-left = ["<Super><Shift>bracketleft"];
+      move-to-workspace-right = ["<Super><Shift>bracketright"];
+
       switch-to-workspace-1 = ["<Super>1"];
       switch-to-workspace-2 = ["<Super>2"];
       switch-to-workspace-3 = ["<Super>3"];
@@ -113,7 +116,7 @@
       night-light-schedule-automatic = false;
       night-light-schedule-from = 0.0;
       night-light-schedule-to = 0.0;
-      night-light-temperature = lib.hm.gvariant.mkUint32 3500;
+      night-light-temperature = lib.hm.gvariant.mkUint32 3000;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
