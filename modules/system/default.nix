@@ -6,5 +6,7 @@
     ./docker.nix
     ./gc.nix
     ./i18n.nix
+    ./nvidia.nix
+    ./tlp.nix
   ];
 }
