@@ -31,9 +31,15 @@
         # prevent firefox from showing the "What's new"
         "browser.startup.homepage_override.mstone" = "ignore";
 
+        "devtools.docked.position" = "right";
+
         # disable the pop-up when entering fullscreen
         "full-screen-api.warning.delay" = 0;
         "full-screen-api.warning.timeout" = 0;
+
+        # enable vertical tabs
+        "sidebar.tools" = ""; # remove entries such as aichat and stuff
+        "sidebar.verticalTabs" = true;
       };
     };
   };
