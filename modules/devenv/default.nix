@@ -14,7 +14,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    btop
     gnumake
+    fastfetch
     tokei
   ];
 }

@@ -45,6 +45,12 @@
         docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"
       '';
 
+      ff = ''
+        fastfetch \
+          --logo small \
+          --structure title:separator:os:localip:kernel:display:de:wm:cpu:gpu:memory:swap:disk:battery:locale
+      '';
+
       g = "git";
       ga = "git add";
       gc = "git commit";
@@ -73,6 +79,21 @@
       wc = "tmux attach -t";
       wls = "tmux ls";
       wk = "tmux kill-server";
+    };
+  };
+
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      style = "compact";
+      show_preview = true;
+
+      auto_sync = false;
+      sync_address = "";
+
+      filter_mode = "directory";
+      filter_mode_shell_up_key_binding = "directory";
     };
   };
 
