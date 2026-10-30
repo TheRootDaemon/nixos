@@ -5,6 +5,7 @@
     nixpkgs.url = "nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     dotfiles.url = "github:TheRootDaemon/dotfiles";
+    tlgc.url = "github:TheRootDaemon/tlgc";
 
     home-manager = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +18,7 @@
     nixpkgs,
     nixpkgs-unstable,
     dotfiles,
+    tlgc,
     home-manager,
     ...
   }: let
@@ -62,6 +64,12 @@
               users.${profile.unixUserName} = import ./home/users/${profile.unixUserName}/home.nix;
             };
           }
+
+          ({pkgs, ...}: {
+            environment.systemPackages = [
+              tlgc.packages.${pkgs.stdenv.hostPlatform.system}.default
+            ];
+          })
         ];
     };
   };

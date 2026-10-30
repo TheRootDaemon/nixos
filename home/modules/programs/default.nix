@@ -20,7 +20,6 @@
     less
     man-db
     ripgrep
-    tlrc
     unzip
     wget
     wl-clipboard
